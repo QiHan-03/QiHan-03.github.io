@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>PhaseShift</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Tan Qi Han</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Go Back</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://qihan-03.github.io/Qi%20Han%20Tan%20Resume.pdf" target="_blank" rel="noopener noreferrer" class="button">Resume</a></li>
+							<li><a href="https://hwanggwa.itch.io/" target="_blank" rel="noopener noreferrer" class="button">itch.io</a></li>
+							<li><a href="https://hwanggwa.itch.io/" target="_blank" rel="noopener noreferrer" class="icon brands fa-itch-io"><span class="label">Itch.io</span></a></li>
+							<li><a href="https://github.com/QiHan-03" target="_blank" rel="noopener noreferrer" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="mailto:tan.qihan1@gmail.com" target="_blank" rel="noopener noreferrer" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1>PhaseShift</h1>
+									<p>
+										<br><b>Role: </b>Gameplay Programmer
+										<br><b>Status: </b>Released
+										<br><b>Time Frame: </b>4 days
+										<br><b>Team Size: </b>3
+										<br><b>Tech: </b>Godot, GDScript
+									</p>
+								</header>
+								<figure style="margin: 0;">
+									<video src="videos/Screen Recording 2025-05-07 234640.mp4" autoplay loop muted playsinline style="width:80%;height:auto;display:block; margin: 0 0 0 10%;"></video>
+									<figcaption style="text-align:center; font-size:0.65em; color:#656363; margin-top:0.1em; margin-bottom: 2em;">
+										<em>Gameplay of PhaseShift.</em>
+									</figcaption>
+								</figure>
+								<h3>About</h3>
+								<p>
+									PhaseShift is just a simple 2D platformer game My friends and I made for a game jam. All of us have no prior experience in game development, so we decided to start with the "tutorial" of game development -- A 2D platformer game with a little bit of our own twist.
+									<br>You play as the lab speciment, Satyr trying to escape from the lab to the end of the level by shifting between different phases of reality.
+								</p>
+								<h4>Introduction</h4>
+								<p>
+									My key contribution to the game is the Movement and the Shifting Mechanics of Satyr. While working with PhaseShift, I mostly focused on <b>how it feels as a player</b> to be moving around the level. Because the movement is the most important aspect of a platformer, I wanted the players to be able to precisely control Satyr's jump timing, landing point, shift timing and so on.
+								</p>
+								<h4>Movement</h4>
+								<p>
+									Godot's default movement script feels sluggish and not responsive. So I decided to implement my own movement script.
+									<br>The two things that I implemented are <b>CoyoteTimer</b> and <b>JumpBuffer</b>. CoyoteTimer allows Satyr who walk off the edge to still be able to jump. While JumpBuffer allows Satyr to register a jump input slightlty before it lands on the ground. Both of these features allow players to have a better control over Satyr's jump.
+								</p>
+								<video src="videos/Coyote Timer.mp4" autoplay loop muted playsinline style="width:80%;height:auto;display:block; margin: 0 0 0 10%;"></video>
+								<figcaption style="text-align:center; font-size:0.65em; color:#656363; margin-top:0.1em; margin-bottom: 2em;">
+									<em>Coyote Timer -- Slight window of time where Satyr can still jump after walking off the edge.</em>
+								</figcaption>
+								<h4>Shifting Mechanics</h4>
+								<p>
+									Shifting between two worlds is done by pressing the shift key. The two worlds are build on two different tilemap layers, on top of each other. I implemented the shifting mechanics by simply playing a shifting animation while swapping the tilemap behind the scenes.
+									<br>A challenge I faced is that I wanted to make it so that Satyr dies if it gets clipped into a wall after shifting. I came up with a solution by checking Satyr's movement. If Satyr is not on the ground, but not falling either, that means he is stuck and the death animation will play.
+								</p>
+								<img src="images/Movement.png" alt="Movement Example" style="width:90%;display:block;margin:0 0 0 3em;">
+								<figcaption style="text-align:center; font-size:0.65em; color:#656363; margin-top:0.1em; margin-bottom: 2em;">
+									<em>GDScript functions that handle wall clipping and death.</em>
+								</figcaption>
+								<h4>What I Learned</h4>
+								<p>
+									When hardcoding Satyr's movement, I wanted to give players a sense of complete control. To achieve this, I studied <b>Celeste</b>—arguably one of the best games when it comes to movement, and I learned a lot from it. For instance, <b>acceleration</b> that's too fast feels stiff and robotic, while acceleration that's too slow feels like constantly walking on ice. Similarly, if <b>jump height</b> is disproportionately high, it feels unnatural, but if it's too low, the jump feels sluggish and unsatisfying. In the end, with tons of play testing and relying on my own gaming sense, I managed to create a movement that I think is pretty good.
+								</p>
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section class="split contact">
+							<section>
+								<h3>Social</h3>
+								<ul class="icons alt">
+									<li><a href="https://hwanggwa.itch.io/" target="_blank" rel="noopener noreferrer" class="icon brands alt fa-itch-io"><span class="label">Itch.io</span></a></li>
+									<li><a href="https://github.com/QiHan-03" target="_blank" rel="noopener noreferrer" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="mailto:tan.qihan1@gmail.com" target="_blank" rel="noopener noreferrer" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+								</ul>
+							</section>
+						</section>
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
